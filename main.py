@@ -8,7 +8,8 @@ from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
 app = Flask(__name__)
-CORS(app)
+# Allow all origins
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 books = pd.read_csv(f"eth.csv")
 books["Description"].to_csv("tagged_description.txt",
@@ -60,4 +61,3 @@ if __name__ == '__main__':
 
 
 
-    
